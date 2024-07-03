@@ -1,0 +1,22 @@
+server:
+  port: 8083
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8890/realms/keycloak-individuals
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+keycloak:
+  realm: keycloak-individuals
+  clientId: my-individuals-api
+  clientSecret: jGER9hx0c3M4RXLreymPafagKOZBlys9
+  urls:
+    auth: http://localhost:8890
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security.oauth2: DEBUG
